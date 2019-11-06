@@ -13,7 +13,7 @@ class EventTickets
     if tickets.present?
       Success(tickets)
     else
-      Failure("Tickets not found for specified event")
+      Failure('Tickets not found for specified event')
     end
   end
 end

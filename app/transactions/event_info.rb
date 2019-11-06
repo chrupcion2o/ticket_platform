@@ -12,6 +12,6 @@ class EventInfo
 
     Success(event)
   rescue ActiveRecord::RecordNotFound
-    Failure("Event not found")
+    Failure('Event not found')
   end
 end

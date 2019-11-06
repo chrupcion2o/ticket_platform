@@ -1,11 +1,10 @@
 class FeaturesController < ApplicationController
-
   # GET /events
   def event_info
     result = ::EventInfo.new.call(event_info_params)
 
     if result.success?
-       render_json(result.success, 200)
+      render_json(result.success, 200)
     else
       render_json({ error: result.failure }, 400)
     end
@@ -18,7 +17,7 @@ class FeaturesController < ApplicationController
     result = ::EventTickets.new.call(event_tickets_params)
 
     if result.success?
-       render_json(result.success, 200)
+      render_json(result.success, 200)
     else
       render_json({ error: result.failure }, 400)
     end
@@ -27,16 +26,13 @@ class FeaturesController < ApplicationController
   end
 
   # POST /events
-  def reserve_ticket
-  end
+  def reserve_ticket; end
 
   # PATCH/PUT /events/1
-  def pay
-  end
+  def pay; end
 
   # DELETE /events/1
-  def reservation_info
-  end
+  def reservation_info; end
 
   private
 

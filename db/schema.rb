@@ -10,47 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_06_151435) do
-
-  create_table "events", force: :cascade do |t|
-    t.string "name"
-    t.datetime "date"
-    t.text "info"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+ActiveRecord::Schema.define(version: 20_191_106_151_435) do
+  create_table 'events', force: :cascade do |t|
+    t.string 'name'
+    t.datetime 'date'
+    t.text 'info'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
   end
 
-  create_table "payments", force: :cascade do |t|
-    t.decimal "price"
-    t.string "currency"
-    t.string "status"
-    t.integer "reservation_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["reservation_id"], name: "index_payments_on_reservation_id"
+  create_table 'payments', force: :cascade do |t|
+    t.decimal 'price'
+    t.string 'currency'
+    t.string 'status'
+    t.integer 'reservation_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['reservation_id'], name: 'index_payments_on_reservation_id'
   end
 
-  create_table "reservations", force: :cascade do |t|
-    t.integer "quantity"
-    t.boolean "is_paid"
-    t.integer "ticket_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["ticket_id"], name: "index_reservations_on_ticket_id"
+  create_table 'reservations', force: :cascade do |t|
+    t.integer 'quantity'
+    t.boolean 'is_paid'
+    t.integer 'ticket_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['ticket_id'], name: 'index_reservations_on_ticket_id'
   end
 
-  create_table "tickets", force: :cascade do |t|
-    t.integer "qunantity"
-    t.string "ticket_type"
-    t.decimal "price"
-    t.string "currency"
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_tickets_on_event_id"
+  create_table 'tickets', force: :cascade do |t|
+    t.integer 'qunantity'
+    t.string 'ticket_type'
+    t.decimal 'price'
+    t.string 'currency'
+    t.integer 'event_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['event_id'], name: 'index_tickets_on_event_id'
   end
 
-  add_foreign_key "payments", "reservations"
-  add_foreign_key "reservations", "tickets"
-  add_foreign_key "tickets", "events"
+  add_foreign_key 'payments', 'reservations'
+  add_foreign_key 'reservations', 'tickets'
+  add_foreign_key 'tickets', 'events'
 end
