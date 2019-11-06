@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+TODO:
+- reserve
+- pay
+- reservation info
 
-Things you may want to cover:
 
-* Ruby version
 
-* System dependencies
+Sample requests:
+`localhost:3000/event_info/1`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`localhost:3000/event_tickets/1`
