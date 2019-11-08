@@ -62,4 +62,33 @@ describe FeaturesController do
       end
     end
   end
+
+  describe 'POST /reserve_ticket' do
+    context 'with correct data' do
+      let(:params) { { ticket: { id: 1, quantity: 2 } } }
+
+      it 'renders json with data' do
+        expect { post :reserve_ticket, params: params, as: :json }.to change(Reservation, :count).by(1)
+
+        response_json = JSON.parse(response.body)
+        expect(response_json).to have_key('id')
+        expect(response_json).to have_key('quantity')
+        expect(response_json).to have_key('is_paid')
+        expect(response_json).to have_key('ticket_id')
+
+        expect(response).to have_http_status(:success)
+      end
+    end
+
+    context 'with incorrect event id' do
+      let(:params) { { ticket: { id: 1, quantity: 3 } } }
+
+      it 'renders json with error' do
+        expect { post :reserve_ticket, params: params, as: :json }.not_to change(Reservation, :count)
+
+        expect(JSON.parse(response.body)).to have_key('error')
+        expect(response).to have_http_status(400)
+      end
+    end
+  end
 end
