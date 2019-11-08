@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 
   get 'event_info/:id', to: 'features#event_info'
   get 'event_tickets/:id', to: 'features#event_tickets'
+  post 'reserve_ticket', to: 'features#reserve_ticket'
 end

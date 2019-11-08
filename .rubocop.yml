@@ -6,3 +6,4 @@ Style/Documentation:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+    - 'db/schema.rb'

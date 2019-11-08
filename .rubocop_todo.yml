@@ -100,6 +100,8 @@ Metrics/CyclomaticComplexity:
 # Configuration parameters: CountComments, ExcludedMethods.
 Metrics/MethodLength:
   Max: 13
+  Exclude:
+    - 'db/schema.rb'
 
 # Offense count: 1
 Metrics/PerceivedComplexity:
@@ -185,6 +187,7 @@ Style/StringLiterals:
     - 'config/environments/production.rb'
     - 'config/puma.rb'
     - 'config/spring.rb'
+    - 'db/schema.rb'
     - 'spec/rails_helper.rb'
     - 'test/channels/application_cable/connection_test.rb'
     - 'test/controllers/events_controller_test.rb'

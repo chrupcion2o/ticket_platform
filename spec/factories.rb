@@ -6,7 +6,7 @@ FactoryBot.define do
   end
 
   factory :ticket do
-    qunantity { 200 }
+    quantity { 200 }
     ticket_type { 'even' }
     price { 20.0 }
     currency { 'EUR' }
