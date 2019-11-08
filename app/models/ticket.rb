@@ -5,6 +5,7 @@ class Ticket < ApplicationRecord
   belongs_to :event
 
   validates_numericality_of :quantity, greater_than_or_equal_to: 0
+  validates :ticket_type,   inclusion: TYPES
 
   def allow_reservation?(quantity_to_reserve)
     case ticket_type
@@ -27,6 +28,6 @@ class Ticket < ApplicationRecord
   end
 
   def avoid_one_reservation?(quantity_to_reserve)
-    (quantity - quantity_to_reserve) > 1
+    (quantity == quantity_to_reserve) || (quantity - quantity_to_reserve) > 1
   end
 end
