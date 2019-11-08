@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_08_094757) do
+ActiveRecord::Schema.define(version: 2019_11_08_100616) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_11_08_094757) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer "quantity"
-    t.boolean "is_paid"
+    t.boolean "is_paid", default: false, null: false
     t.integer "ticket_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
